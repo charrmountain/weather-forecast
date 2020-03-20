@@ -1,0 +1,12 @@
+#title {
+    padding: 25px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.col-8{
+   border: 3px;
+   border: black;
+   padding: 3;
+}
