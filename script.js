@@ -5,6 +5,7 @@ $("#search-button").on("click", function () {
     var APIKey = "82fdd99a86105b66de45ae6fa55be58f";
     var queryURL ="http://api.openweathermap.org/data/2.5/weather?q="+ 
     searchTerm+"&appid="+APIKey;
+
     $(".city").empty();
     $(".temp").empty();
     $(".wind").empty();
@@ -25,6 +26,10 @@ $("#search-button").on("click", function () {
   function renderCurrentWeather(result) {
           //city name
           var cityName = $("<h1>").text(result.name);
+          cityName.css("font-weight", "bold");
+          var currentDate = moment().format('MMMM Do, YYYY');
+          var date = $("<h5>").text(currentDate)
+     
           //get temp in F
           var tempF = (result.main.temp - 273.15) * 1.8 + 32;
           
@@ -34,16 +39,22 @@ $("#search-button").on("click", function () {
           var iconurl = "http://openweathermap.org/img/w/" + iconCode + ".png";
 
           //make new divs
-          var temp = $("<h5>").text("Temperature: " + tempF.toFixed(2) +" °F");
-          var wind = $("<h5>").text("Wind Speed: " + result.wind.speed + " MPH");
-          var humidity = $("<h5>").text("Humidity: " + result.main.humidity + " %");
+          var temp = $("<p>").text("Temperature: " + tempF.toFixed(2) +" °F");
+          var wind = $("<p>").text("Wind Speed: " + result.wind.speed + " MPH");
+          var humidity = $("<p>").text("Humidity: " + result.main.humidity + " %");
           var weatherIcon = $("<img>").attr('src', iconurl);
     
+          //style
+          temp.css("font-weight", "lighter");
+          wind.css("font-weight", "lighter");
+          humidity.css("font-weight", "lighter");
+
             //append to body
-          $(".city").append(cityName,weatherIcon)
+          $(".city").append(cityName,date, weatherIcon)
           $(".temp").append(temp)
           $(".wind").append(wind)
           $(".humidity").append(humidity)
+          
   };
 
   //have to get query UV 
@@ -65,8 +76,10 @@ $("#search-button").on("click", function () {
               console.log(response)
               var uvBtn = $("<button>")
               var uvNum = response.value
-              var uvValue = $("<h5>").text(uvNum)
-              var uvIndex = $("<h5>").text("UV Index: ");
+              var uvValue = $("<p>").text(uvNum)
+              var uvIndex = $("<p>").text("UV Index: ");
+              uvValue.css("font-weight", "lighter");
+              uvIndex.css("font-weight", "lighter");
               uvBtn.append(uvValue);
             
               //UV colors
