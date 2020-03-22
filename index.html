@@ -23,7 +23,7 @@
 
     <!-- search-->
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -32,23 +32,45 @@
                 <button type="button" class="btn btn-primary" id="search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </div>
             </div>
-            <!-- display city search (current weather) -->
             <div class="col-8">
-                <div class="card" >
-                    <div class="card-body" id="current-weather">
+            <!-- display city search (current weather) -->
+            <div class="card">
+            <div class="card-body" id="current-weather">
+                <div class="row">
                 <!-- city & weather icon  -->
-                <div class="city"></div>
+                    <div class="city"></div>
+                    <div class="weather-icon"></div><br>
+                </div>
                  <!-- temp -->
                  <div class="temp"></div><br>
                 <!-- wind -->
                 <div class="wind"></div><br>
                 <!-- humidity -->
                 <div class="humidity"></div><br>
+                <div class="row">
                 <!-- UV Index -->
-                <div class="uvIndex"></div><br>
+                    <div class="uvIndex"></div>
+                    <div class="col-3">
+                         <div class="uv-button" style="padding: 0px"></div>
+                    </div>
+                    <br>
+                    <br>
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                    <div class="card">`
+                        <div class="card-body" style="padding: 0px">
+                            <!-- 5 day forecast -->
+                            <div class="current-weather"style="padding: 0px"></div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
+            </div>
+            </div>
+        </div>
         </div>
     </div>
     
