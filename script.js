@@ -3,7 +3,7 @@ $("#search-button").on("click", function () {
     
     var searchTerm = $("#search-term").val()
     var APIKey = "82fdd99a86105b66de45ae6fa55be58f";
-    var queryURL ="http://api.openweathermap.org/data/2.5/weather?q="+ 
+    var queryURL ="https://api.openweathermap.org/data/2.5/weather?q="+ 
     searchTerm+"&appid="+APIKey;
 
     //get city name
@@ -37,7 +37,7 @@ $("#search-button").on("click", function () {
 $(newBtn).on("click", function (event) {
     console.log(searchTerm)
         var APIKey = "82fdd99a86105b66de45ae6fa55be58f";
-        var queryURL ="http://api.openweathermap.org/data/2.5/weather?q="+ 
+        var queryURL ="https://api.openweathermap.org/data/2.5/weather?q="+ 
         searchTerm +"&appid="+ APIKey;
 
         $(".city").empty();
@@ -77,7 +77,7 @@ $(newBtn).on("click", function (event) {
           //get icon code
           var iconCode = result.weather[0].icon
           //place in URL
-          var iconurl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+          var iconurl = "https://openweathermap.org/img/w/" + iconCode + ".png";
 
           //make new div
           var temp = $("<p>").text("Temperature: " + tempF.toFixed(2) +" °F");
@@ -107,7 +107,7 @@ $(newBtn).on("click", function (event) {
     var lon = result.coord.lon
     var lat = result.coord.lat
     //UV place UFL
-    var queryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat="+ lat +"&lon=" + lon
+    var queryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat="+ lat +"&lon=" + lon
     
     $.ajax({
         url: queryURL,
@@ -156,7 +156,7 @@ function renderForecast(result){
     //get long/lat for UV url
     var cityName = result.name;
     //UV place UFL
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" +cityName+ "&appid="+ APIKey
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" +cityName+ "&appid="+ APIKey
     
     $.ajax({
         url: queryURL,
@@ -185,7 +185,7 @@ function renderForecast(result){
                 var tempFForecast = (tempForecast - 273.15) * 1.8 + 32;
                 
                 //place in URL
-                var iconurlForecast = "http://openweathermap.org/img/w/" + iconForecastCode  + ".png";
+                var iconurlForecast = "https://openweathermap.org/img/w/" + iconForecastCode  + ".png";
 
                 //make new div
                 var temp = $("<p>").text("Temperature: " + tempFForecast.toFixed(2) +" °F");
