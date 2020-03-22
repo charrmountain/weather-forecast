@@ -35,7 +35,6 @@ $("#search-button").on("click", function () {
 
 
 $(newBtn).on("click", function (event) {
-    console.log(searchTerm)
         var APIKey = "82fdd99a86105b66de45ae6fa55be58f";
         var queryURL ="https://api.openweathermap.org/data/2.5/weather?q="+ 
         searchTerm +"&appid="+ APIKey;
@@ -54,7 +53,6 @@ $(newBtn).on("click", function (event) {
         method: "GET"
         })
         .then(function (result) {
-            console.log(result)
             renderUVindex(result);
             renderCurrentWeather(result);
             renderForecast(result);
@@ -116,32 +114,31 @@ $(newBtn).on("click", function (event) {
           .then(function (response) {
               var uvBtn = $("<button>")
               var uvNum = response.value
-              var uvValue = $("<p>").text(uvNum)
+              uvBtn.text(uvNum)
               var uvIndex = $("<p>").text("UV Index: ");
-              uvValue.css("font-weight", "lighter");
+              uvBtn.css("font-weight", "bold");
               uvIndex.css("font-weight", "lighter");
-              uvBtn.append(uvValue);
             
               //UV colors
             if (uvNum <= 2){
-                uvBtn.attr("class", "btn btn-success btn-sm");
-                uvBtn.css("margin", "0");
+                uvBtn.attr("class", "btn btn-success");
+    
 
             }else if (uvNum <= 5){
-                uvBtn.attr("class", "btn btn-warning btn-sm");
-                uvBtn.css("margin", "0");
+                uvBtn.attr("class", "btn btn-warning");
+               
 
             }else if (uvNum <= 7){
-                uvBtn.attr("class", "btn btn-danger btn-sm");
-                uvBtn.css("margin", "0");
+                uvBtn.attr("class", "btn btn-danger");
+                
 
             }else if (uvNum <= 10){
-                uvBtn.attr("class", "btn btn-info btn-sm");
-                uvBtn.css("margin", "0");
+                uvBtn.attr("class", "btn btn-info");
+               
 
             }else if (uvNum >= 11){
-                uvBtn.attr("class", "btn btn-primary btn-sm");
-                uvBtn.css("margin", "0");
+                uvBtn.attr("class", "btn btn-primary");
+    
             }
 
             $(".uvIndex").append(uvIndex);
@@ -163,8 +160,6 @@ function renderForecast(result){
         method: "GET"
         })
           .then(function (response) {
-              console.log(response)
-
              for( var i = 0; i <5; i++) {
                 //date
                 var date = $("<h1>").text(moment().add(i+1, 'days').calendar()); 

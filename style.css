@@ -8,3 +8,7 @@
 .row{
     margin:4px;
 }
+
+p{
+    margin-bottom: 0;
+}
