@@ -6,6 +6,13 @@ $("#search-button").on("click", function () {
     var queryURL ="http://api.openweathermap.org/data/2.5/weather?q="+ 
     searchTerm+"&appid="+APIKey;
 
+    //get city name
+    var newBtn = $("<button>");
+    newBtn.text(searchTerm);
+    newBtn.attr("class", "btn btn-light btn-lg btn-block");
+    newBtn.attr("data-name", searchTerm);
+    $(".cities").prepend(newBtn);
+
     $(".city").empty();
     $(".temp").empty();
     $(".wind").empty();
@@ -13,18 +20,49 @@ $("#search-button").on("click", function () {
     $(".uvIndex").empty();
     $(".uv-button").empty();
     $(".weather-icon").empty();
+    $(".current-weather").empty();
 
     $.ajax({
     url: queryURL,
     method: "GET"
     })
       .then(function (result) {
-          console.log(result)
           renderUVindex(result);
           renderCurrentWeather(result);
           renderForecast(result);
+        //   renderHistory(result);
       });
+
+
+$(newBtn).on("click", function (event) {
+    console.log(searchTerm)
+        var APIKey = "82fdd99a86105b66de45ae6fa55be58f";
+        var queryURL ="http://api.openweathermap.org/data/2.5/weather?q="+ 
+        searchTerm +"&appid="+ APIKey;
+
+        $(".city").empty();
+        $(".temp").empty();
+        $(".wind").empty();
+        $(".humidity").empty();
+        $(".uvIndex").empty();
+        $(".uv-button").empty();
+        $(".weather-icon").empty();
+        $(".current-weather").empty();
+
+        $.ajax({
+        url: queryURL,
+        method: "GET"
+        })
+        .then(function (result) {
+            console.log(result)
+            renderUVindex(result);
+            renderCurrentWeather(result);
+            renderForecast(result);
+          });
+     });
   });
+
+  
 
   function renderCurrentWeather(result) {
           //city name
@@ -112,7 +150,7 @@ $("#search-button").on("click", function () {
     };
 
 //5 day forecast
-    function renderForecast(result){
+function renderForecast(result){
 
     var APIKey = "82fdd99a86105b66de45ae6fa55be58f";
     //get long/lat for UV url
@@ -128,47 +166,45 @@ $("#search-button").on("click", function () {
               console.log(response)
 
              for( var i = 0; i <5; i++) {
-            //date
-            var date = $("<h1>").text(moment().add(i+1, 'days').calendar()); 
-            //get 5 days to print
-            newCard = $("<div class='card'>");
-            newCardBody =$("<div class='card-body'>")
-            //date
-            // var dateForecast = response.list[0].sys.dt_txt
-            //icon
-            var iconForecastCode = response.list[i].weather[0].icon
-            // temp
-            var tempForecast = response.list[i].main.temp
-            //humidity
-            var humidityForecast = response.list[i].main.humidity
+                //date
+                var date = $("<h1>").text(moment().add(i+1, 'days').calendar()); 
+                //get 5 days to print
+                newCard = $("<div class='card'>");
+                newCardBody =$("<div class='card-body'>")
+                //date
+                // var dateForecast = response.list[0].sys.dt_txt
+                //icon
+                var iconForecastCode = response.list[i].weather[0].icon
+                // temp
+                var tempForecast = response.list[i].main.temp
+                //humidity
+                var humidityForecast = response.list[i].main.humidity
 
+                    
+                //get temp in F
+                var tempFForecast = (tempForecast - 273.15) * 1.8 + 32;
                 
-            //get temp in F
-            var tempFForecast = (tempForecast - 273.15) * 1.8 + 32;
-            
-            //place in URL
-            var iconurlForecast = "http://openweathermap.org/img/w/" + iconForecastCode  + ".png";
+                //place in URL
+                var iconurlForecast = "http://openweathermap.org/img/w/" + iconForecastCode  + ".png";
 
-            //make new div
-            var temp = $("<p>").text("Temperature: " + tempFForecast.toFixed(2) +" °F");
-            var humidity = $("<p>").text("Humidity: " + humidityForecast + " %");
-            var weatherIcon = $("<img>").attr('src', iconurlForecast);
+                //make new div
+                var temp = $("<p>").text("Temperature: " + tempFForecast.toFixed(2) +" °F");
+                var humidity = $("<p>").text("Humidity: " + humidityForecast + " %");
+                var weatherIcon = $("<img>").attr('src', iconurlForecast);
 
-            //append
-            newCardBody.append(date);
-            newCardBody.append(weatherIcon);
-            newCardBody.append(temp);
-            newCardBody.append(humidity);
+                //append
+                newCardBody.append(date);
+                newCardBody.append(weatherIcon);
+                newCardBody.append(temp);
+                newCardBody.append(humidity);
 
-            newCard.append(newCardBody)
-            newCard.css("margin", "0");
-            newCard.css("padding", "0");
-            newCard.css("background-color", "rgb(0, 153, 255)");
-            newCard.css("color", "white");
+                newCard.append(newCardBody)
+                newCard.css("margin", "0");
+                newCard.css("padding", "0");
+                newCard.css("background-color", "rgb(0, 153, 255)");
+                newCard.css("color", "white");
 
-            $(".current-weather").append(newCard);
-            
+                $(".current-weather").append(newCard); 
              }
-
-            });
+         });
      };
