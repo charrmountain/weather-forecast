@@ -1,6 +1,6 @@
 
     //page reloads old search persists
-    var oldCity = localStorage.getItem("searchcity").trim();
+    var oldCity = localStorage.getItem("searchcity")
     var city = JSON.parse(oldCity);
     var APIKey = "82fdd99a86105b66de45ae6fa55be58f";
     var queryURL ="https://api.openweathermap.org/data/2.5/weather?q="+ 

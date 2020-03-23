@@ -13,6 +13,9 @@
 /* Phone edits*/
 @media (max-width: 580px) {   
 
+    .weather-dash{
+        font-size: 30px;
+    }
     /*font size change*/
      h1{
        font-size: 15px;
@@ -22,6 +25,9 @@
          font-size: 10px;
      }
 
+     h5, .card-header, .placeholder{
+         font-size: 12px;
+     }
      .card, .card-body{
          margin:1px;
          padding:1px;
