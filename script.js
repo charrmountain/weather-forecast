@@ -1,4 +1,29 @@
 
+    //page reloads old search persists
+    var oldCity = localStorage.getItem("searchcity").trim();
+    var city = JSON.parse(oldCity);
+    var APIKey = "82fdd99a86105b66de45ae6fa55be58f";
+    var queryURL ="https://api.openweathermap.org/data/2.5/weather?q="+ 
+    city +"&appid="+ APIKey;
+
+    $(".city").empty();
+    $(".temp").empty();
+    $(".wind").empty();
+    $(".humidity").empty();
+    $(".uvIndex").empty();
+    $(".uv-button").empty();
+    $(".weather-icon").empty();
+    $(".current-weather").empty();
+
+    $.ajax({
+    url: queryURL,
+    method: "GET"
+    })
+    .then(function (result) {
+        renderUVindex(result);
+        renderCurrentWeather(result);
+        renderForecast(result);
+      });
 
 // Here we are building the URL we need to query the database
 $("#search-button").on("click", function () {
@@ -8,8 +33,9 @@ $("#search-button").on("click", function () {
     var queryURL ="https://api.openweathermap.org/data/2.5/weather?q="+ 
     searchTerm+"&appid="+APIKey;
 
+    
     //store that data by settin it to local storage
-    localStorage.setItem("search city", JSON.stringify(searchTerm));
+    localStorage.setItem("searchcity", JSON.stringify(searchTerm));
 
     //get city name
     var newBtn = $("<button>");
