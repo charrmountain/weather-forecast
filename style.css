@@ -9,6 +9,22 @@
     margin:3px;
 }
 
-p{
-    margin-bottom: 0;
+
+/* Phone edits*/
+@media (max-width: 580px) {   
+
+    /*font size change*/
+     h1{
+       font-size: 15px;
+     }
+
+     p{
+         font-size: 10px;
+     }
+
+     .card, .card-body{
+         margin:1px;
+         padding:1px;
+     }
+   
 }

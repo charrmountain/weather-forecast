@@ -2,7 +2,7 @@
 
 ## **Description**
 
--  User can view the weather forecast for any of their favorite cities. Once user searches for the city they desire they are presented with a full page of the current forecast. Which includes the current temperature, humidity, wind speed, and UV index. At the bottom of this same page the user can also view a full 5 day forecast of the selected city which displays the temperature and humidity for each day. Lastly, if the user exits or reloads the page their last search persists. 
+-  User can view the weather forecast for any of their favorite cities. Once user searches for the city they desire they are presented with a full page of the current forecast. Which includes the current temperature, humidity, wind speed, and UV index. At the bottom of this same page the user can also view a full 5 day forecast of the selected city which displays the temperature and humidity for each day. Lastly, if the user exits or reloads the page their last search persists.
 
     - ### **HTML pages:**
          1. [index.html](index.html) is the main home page for the quiz
