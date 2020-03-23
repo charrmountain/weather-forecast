@@ -1,3 +1,5 @@
+
+
 // Here we are building the URL we need to query the database
 $("#search-button").on("click", function () {
     
@@ -5,6 +7,9 @@ $("#search-button").on("click", function () {
     var APIKey = "82fdd99a86105b66de45ae6fa55be58f";
     var queryURL ="https://api.openweathermap.org/data/2.5/weather?q="+ 
     searchTerm+"&appid="+APIKey;
+
+    //store that data by settin it to local storage
+    localStorage.setItem("search city", JSON.stringify(searchTerm));
 
     //get city name
     var newBtn = $("<button>");
@@ -30,7 +35,6 @@ $("#search-button").on("click", function () {
           renderUVindex(result);
           renderCurrentWeather(result);
           renderForecast(result);
-        //   renderHistory(result);
       });
 
 
@@ -162,7 +166,9 @@ function renderForecast(result){
           .then(function (response) {
              for( var i = 0; i <5; i++) {
                 //date
-                var date = $("<h2>").text(moment().add(i+1, 'days').calendar()); 
+                var DaysForward = new moment().add(i+1, 'day');
+                var getDay = (DaysForward).format('dddd');
+                var date = $("<h1>").text(getDay)
                 //get 5 days to print
                 newCard = $("<div class='card'>");
                 newCardBody =$("<div class='card-body'>")
