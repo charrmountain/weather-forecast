@@ -197,10 +197,11 @@ function renderForecast(result){
                 //date
                 var DaysForward = new moment().add(i+1, 'day');
                 var getDay = (DaysForward).format('dddd');
-                var date = $("<h1>").text(getDay)
+                var date = $("<h4>").text(getDay)
                 //get 5 days to print
-                newCard = $("<div class='card'>");
-                newCardBody =$("<div class='card-body'>")
+                var newCard = $("<div class='card'>");
+                var newCardBody =$("<div class='card-body'>")
+    
                 //date
                 // var dateForecast = response.list[0].sys.dt_txt
                 //icon
@@ -218,22 +219,28 @@ function renderForecast(result){
                 var iconurlForecast = "https://openweathermap.org/img/w/" + iconForecastCode  + ".png";
 
                 //make new div
-                var temp = $("<p>").text("Temperature: " + tempFForecast.toFixed(2) +" °F");
+                var temp = $("<p>").text(tempFForecast.toFixed(2) +" °F");
                 var humidity = $("<p>").text("Humidity: " + humidityForecast + " %");
                 var weatherIcon = $("<img>").attr('src', iconurlForecast);
+                date.css("font-weight","bold")
+                temp.css("font-size","30px")
 
                 //append
                 newCardBody.append(date);
                 newCardBody.append(weatherIcon);
                 newCardBody.append(temp);
                 newCardBody.append(humidity);
+                newCardBody.css("padding", "1px");
+                newCardBody.css("text-align","center")
 
                 newCard.append(newCardBody)
-                newCard.css("margin", "0");
-                newCard.css("padding", "0");
+                newCard.css("margin", "5px");
                 newCard.css("background-color", "rgb(0, 153, 255)");
                 newCard.css("color", "white");
-
+                newCard.css("width","9.75rem")
+                newCard.css("float","left")
+                newCard.css("padding", "1px");
+                
                 $(".current-weather").append(newCard); 
              }
          });
