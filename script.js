@@ -162,7 +162,7 @@ function renderForecast(result){
           .then(function (response) {
              for( var i = 0; i <5; i++) {
                 //date
-                var date = $("<h1>").text(moment().add(i+1, 'days').calendar()); 
+                var date = $("<h2>").text(moment().add(i+1, 'days').calendar()); 
                 //get 5 days to print
                 newCard = $("<div class='card'>");
                 newCardBody =$("<div class='card-body'>")
