@@ -7,7 +7,7 @@ if ( localCity !== 'undefined' && localCity !== null){
     var APIKey = "82fdd99a86105b66de45ae6fa55be58f";
     var queryURL ="https://api.openweathermap.org/data/2.5/weather?q="+ 
     city +"&appid="+ APIKey;
-
+    
     $(".city").empty();
     $(".temp").empty();
     $(".wind").empty();
@@ -96,6 +96,7 @@ $(newBtn).on("click", function (event) {
   
 
   function renderCurrentWeather(result) {
+
           //city name
           var cityName = $("<h1>").text(result.name);
           cityName.css("font-weight", "bold");
@@ -181,7 +182,7 @@ $(newBtn).on("click", function (event) {
 
 //5 day forecast
 function renderForecast(result){
-
+    console.log(result)
     var APIKey = "82fdd99a86105b66de45ae6fa55be58f";
     //get long/lat for UV url
     var cityName = result.name;
@@ -205,11 +206,11 @@ function renderForecast(result){
                 //date
                 // var dateForecast = response.list[0].sys.dt_txt
                 //icon
-                var iconForecastCode = response.list[i].weather[0].icon
+                var iconForecastCode = response.list[i+8].weather[0].icon
                 // temp
-                var tempForecast = response.list[i].main.temp
+                var tempForecast = response.list[i+8].main.temp
                 //humidity
-                var humidityForecast = response.list[i].main.humidity
+                var humidityForecast = response.list[i+8].main.humidity
 
                     
                 //get temp in F
