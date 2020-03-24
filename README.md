@@ -6,7 +6,7 @@
 
     - ### **HTML pages:**
          1. [index.html](index.html) is the main home page for the quiz
-         2. [home-script.js](portfolio.html) is the JavaScript for script to make quiz run correctly.
+         2. [script.js](script.js) is the JavaScript for script to make page run correctly.
 
 
     - ### **Style Sheets** (used on all HTML pages)**:**
