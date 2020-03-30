@@ -1,4 +1,5 @@
-#  **Weather Forecast** #
+#  **Weather Forecast** # 
+[Deployed Link](https://charrmountain.github.io/weather-forecast/)
 
 ## **Description**
 
@@ -15,6 +16,8 @@
 
 
 ## **Visuals**
+![alt](images/weatherdashboard.png)
+- Example of a project page
 - Icons that display for the current and future weather types 
 - Past searches saved on side bar
 
