@@ -1,8 +1,15 @@
-#title {
+.weather-dash {
     padding: 25px;
     text-align: center;
     background-color: black;
     color: white;
+    font-family: 'Satisfy', cursive;
+    font-size: 80px;
+}
+
+body{
+    background-image:url(images/clouds.jpg);
+    background-size: cover;
 }
 
 .row{

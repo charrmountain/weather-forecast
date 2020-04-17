@@ -43,8 +43,9 @@ $("#search-button").on("click", function () {
     //get city name
     var newBtn = $("<button>");
     newBtn.text(searchTerm);
-    newBtn.attr("class", "btn btn-light btn-lg btn-block");
+    newBtn.attr("class", "uk-button uk-button-default");
     newBtn.attr("data-name", searchTerm);
+    newBtn.css("font-family", "'Abril Fatface', cursive");
     $(".cities").prepend(newBtn);
 
     $(".city").empty();
@@ -97,9 +98,10 @@ $(newBtn).on("click", function (event) {
 
   function renderCurrentWeather(result) {
 
-          //city name
+          //city name font-family: 'Satisfy', cursive;
           var cityName = $("<h1>").text(result.name);
-          cityName.css("font-weight", "bold");
+          cityName.css("font-family", "bold");
+          cityName.css("font-family", "'Abril Fatface', cursive");
           var currentDate = moment().format('MMMM Do, YYYY');
           var date = $("<h5>").text(currentDate)
      
@@ -116,7 +118,7 @@ $(newBtn).on("click", function (event) {
           var wind = $("<p>").text("Wind Speed: " + result.wind.speed + " MPH");
           var humidity = $("<p>").text("Humidity: " + result.main.humidity + " %");
           var weatherIcon = $("<img>").attr('src', iconurl);
-    
+
           //style
           temp.css("font-weight", "lighter");
           wind.css("font-weight", "lighter");
@@ -146,7 +148,7 @@ $(newBtn).on("click", function (event) {
         method: "GET"
         })
           .then(function (response) {
-              var uvBtn = $("<button>")
+              var uvBtn = $("<span>")
               var uvNum = response.value
               uvBtn.text(uvNum)
               var uvIndex = $("<p>").text("UV Index: ");
@@ -155,23 +157,23 @@ $(newBtn).on("click", function (event) {
             
               //UV colors
             if (uvNum <= 2){
-                uvBtn.attr("class", "btn btn-success");
+                uvBtn.attr("class", "uk-label uk-label-success");
     
 
             }else if (uvNum <= 5){
-                uvBtn.attr("class", "btn btn-warning");
+                uvBtn.attr("class", "uk-label uk-label-success");
                
 
             }else if (uvNum <= 7){
-                uvBtn.attr("class", "btn btn-danger");
+                uvBtn.attr("class", "uk-label uk-label-warning");
                 
 
             }else if (uvNum <= 10){
-                uvBtn.attr("class", "btn btn-info");
+                uvBtn.attr("class", "uk-label uk-label-danger");
                
 
             }else if (uvNum >= 11){
-                uvBtn.attr("class", "btn btn-primary");
+                uvBtn.attr("class", "uk-label");
     
             }
 
@@ -180,7 +182,7 @@ $(newBtn).on("click", function (event) {
           });
     };
 
-//5 day forecast
+// //5 day forecast
 function renderForecast(result){
     console.log(result)
     var APIKey = "82fdd99a86105b66de45ae6fa55be58f";
@@ -198,12 +200,12 @@ function renderForecast(result){
                 //date
                 var DaysForward = new moment().add(i+1, 'day');
                 var getDay = (DaysForward).format('dddd');
-                var date = $("<h4>").text(getDay)
+                var date = $("<h3 class='uk-card-title'>").text(getDay)
                 //get 5 days to print
-                var newCard = $("<div class='card'>");
-                var newCardBody =$("<div class='card-body'>")
+                var newCard = $("<div class='uk-card'>");
+                var newCardBody =$("<div class='uk-card uk-card-default uk-card-body'>")
     
-                //date
+                // //date
                 // var dateForecast = response.list[0].sys.dt_txt
                 //icon
                 var iconForecastCode = response.list[i+8].weather[0].icon
@@ -223,8 +225,10 @@ function renderForecast(result){
                 var temp = $("<p>").text(tempFForecast.toFixed(2) +" °F");
                 var humidity = $("<p>").text("Humidity: " + humidityForecast + " %");
                 var weatherIcon = $("<img>").attr('src', iconurlForecast);
-                date.css("font-weight","bold")
-                temp.css("font-size","30px")
+                date.css("font-family","'Abril Fatface', cursive")
+                temp.css("font-size","15px")
+                humidity.css("font-size","12px")
+                weatherIcon.css("font-size","15px")
 
                 //append
                 newCardBody.append(date);
@@ -233,11 +237,12 @@ function renderForecast(result){
                 newCardBody.append(humidity);
                 newCardBody.css("padding", "1px");
                 newCardBody.css("text-align","center")
+                newCardBody.css("align-content","center")
+                newCardBody.css("height","12rem")
 
                 newCard.append(newCardBody)
+                newCard.css("align-content","center")
                 newCard.css("margin", "5px");
-                newCard.css("background-color", "rgb(0, 153, 255)");
-                newCard.css("color", "white");
                 newCard.css("width","9.75rem")
                 newCard.css("float","left")
                 newCard.css("padding", "1px");
