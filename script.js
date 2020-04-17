@@ -200,9 +200,9 @@ function renderForecast(result){
                 //date
                 var DaysForward = new moment().add(i+1, 'day');
                 var getDay = (DaysForward).format('dddd');
-                var date = $("<h3 class='uk-card-title'>").text(getDay)
+                var date = $("<h2 class='uk-card-title'>").text(getDay)
                 //get 5 days to print
-                var newCard = $("<div class='uk-card'>");
+                // var newCard = $("<div class='uk-card'>");
                 var newCardBody =$("<div class='uk-card uk-card-default uk-card-body'>")
     
                 // //date
@@ -235,19 +235,12 @@ function renderForecast(result){
                 newCardBody.append(weatherIcon);
                 newCardBody.append(temp);
                 newCardBody.append(humidity);
-                newCardBody.css("padding", "1px");
-                newCardBody.css("text-align","center")
+           
+                newCardBody.attr("text-align","center")
                 newCardBody.css("align-content","center")
-                newCardBody.css("height","12rem")
-
-                newCard.append(newCardBody)
-                newCard.css("align-content","center")
-                newCard.css("margin", "5px");
-                newCard.css("width","9.75rem")
-                newCard.css("float","left")
-                newCard.css("padding", "1px");
+                newCardBody.css("margin", "5px");
                 
-                $(".current-weather").append(newCard); 
+                $(".current-weather").append(newCardBody); 
              }
          });
      };

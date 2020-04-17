@@ -15,14 +15,17 @@
       href="https://fonts.googleapis.com/css?family=Quicksand|Satisfy|Montserrat&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <!-- title -->
     <h1 class="weather-dash">Weather Dashboard</h1>
     <div class="uk-child-width-expand@s uk-text-center" uk-grid>
-      
+      <div>
         <div class="uk-card uk-card-default uk-card-body">
           <!-- search-->
           <div class="uk-margin">
@@ -38,11 +41,12 @@
           </div>
           <!-- old searches -->
           <div class="uk-align-center">
-          <div class="cities"></div>
-            </div>
+            <div class="cities"></div>
+          </div>
+        </div>
       </div>
 
-
+      <div>
         <div class="uk-card uk-card-default uk-card-body">
           <!-- display city search (current weather) -->
           <!-- city & weather icon  -->
@@ -58,14 +62,14 @@
           <div class="uvIndex"></div>
           <div class="uv-button"></div>
         </div>
+      </div>
 
-
-
-        <div class="uk-card uk-card-default uk-card-body">
+ 
           <!-- 5 day forecast -->
+          <div class="uk-align-center">
           <div class="current-weather"></div>
         </div>
-    </div>
+      </div>
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
