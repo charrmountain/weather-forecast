@@ -40,7 +40,7 @@
 
 ## **Visuals**
 
-![alt](images/weatherdashboard.png)
+![alt](images/weather.gif)
 - Icons that display for the current and future weather types 
 - Past searches saved on side bar
 

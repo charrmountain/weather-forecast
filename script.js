@@ -39,7 +39,6 @@ $("#search-button").on("click", function() {
 
     //store that data by settin it to local storage
     localStorage.setItem("searchcity", JSON.stringify(searchTerm));
-
     //get city name
     var newBtn = $("<button>");
     newBtn.text(searchTerm);
@@ -48,6 +47,7 @@ $("#search-button").on("click", function() {
     newBtn.css("font-family", "'Abril Fatface', cursive");
     $(".cities").prepend(newBtn);
 
+    $("#search-term").empty();
     $(".city").empty();
     $(".temp").empty();
     $(".wind").empty();
