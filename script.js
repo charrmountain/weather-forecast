@@ -200,7 +200,7 @@ function renderForecast(result) {
                 //date
                 var DaysForward = new moment().add(i + 1, 'day');
                 var getDay = (DaysForward).format('dddd');
-                var date = $("<h2 class='uk-card-title'>").text(getDay)
+                var date = $("<p class='uk-card-title'>").text(getDay)
                     //get 5 days to print
                     // var newCard = $("<div class='uk-card'>");
                 var newCardBody = $("<div class='uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle'>")
@@ -211,8 +211,6 @@ function renderForecast(result) {
                 var iconForecastCode = response.list[i + 8].weather[0].icon
                     // temp
                 var tempForecast = response.list[i + 8].main.temp
-                    //humidity
-                var humidityForecast = response.list[i + 8].main.humidity
 
                 //get temp in F
                 var tempFForecast = (tempForecast - 273.15) * 1.8 + 32;
@@ -222,13 +220,12 @@ function renderForecast(result) {
 
                 //make new div
                 var temp = $("<p>").text(tempFForecast.toFixed(2) + " °F");
-                var humidity = $("<p>").text("Humidity: " + humidityForecast + " %");
 
                 var weatherIcon = $("<img>").attr('src', iconurlForecast);
                 date.css("font-family", "'Abril Fatface', cursive")
-                temp.css("font-size", "30px")
-
-                weatherIcon.css("font-size", "15px")
+                temp.css("font-size", "20px")
+                date.css("font-size", "20px")
+                weatherIcon.css("font-size", "5px")
 
                 //append
                 newCardBody.append(date);
