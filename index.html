@@ -1,85 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Weather Dashboard</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- UIkit CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/uikit@3.4.1/dist/css/uikit.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.1/dist/css/uikit.min.css" />
     <link rel="stylesheet" href="/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Quicksand|Satisfy|Montserrat&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Satisfy|Montserrat&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet" />
+</head>
 
-  <body>
-    <!-- title -->
-    <h1 class="weather-dash">Weather Dashboard</h1>
-    <div class="uk-child-width-expand@s uk-text-center" uk-grid>
-      <div>
-        <div class="uk-card uk-card-default uk-card-body">
-          <!-- search-->
-          <div class="uk-margin">
-            <input
-              class="uk-input uk-form-width-medium"
-              id="search-term"
-              type="text"
-              placeholder="Enter City Here"
-            />
-            <button class="uk-button uk-button-default" id="search-button">
+<body>
+
+    <div class="uk-background-center-center" style="background-image: url(images/clouds.jpg);">
+        <!-- title -->
+        <h1 class="weather-dash">Weather Dashboard</h1>
+        <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+
+            <div class="uk-grid-row-small">
+                <div class="uk-align-center">
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body">
+                            <!-- search-->
+                            <div class="uk-margin">
+                                <input class="uk-input uk-form-width-medium" id="search-term" type="text" placeholder="Enter City Here" />
+                                <br><br>
+                                <button class="uk-button uk-button-default" id="search-button">
               Search
             </button>
-          </div>
-          <!-- old searches -->
-          <div class="uk-align-center">
-            <div class="cities"></div>
-          </div>
-        </div>
-      </div>
+                            </div>
+                            <!-- old searches -->
+                            <div class="uk-align-center">
+                                <div class="cities"></div>
+                            </div>
+                        </div>
+                    </div>
 
-      <div>
-        <div class="uk-card uk-card-default uk-card-body">
-          <!-- display city search (current weather) -->
-          <!-- city & weather icon  -->
-          <div class="city"></div>
-          <div class="weather-icon"></div>
-          <!-- temp -->
-          <div class="temp"></div>
-          <!-- wind -->
-          <div class="wind"></div>
-          <!-- humidity -->
-          <div class="humidity"></div>
-          <!-- UV Index -->
-          <div class="uvIndex"></div>
-          <div class="uv-button"></div>
-        </div>
-      </div>
+                </div>
+            </div>
 
- 
-          <!-- 5 day forecast -->
-          <div class="uk-align-center">
-          <div class="current-weather"></div>
-        </div>
-      </div>
+            <div class="uk-grid-row-small">
+                <div class="uk-align-center">
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body">
+                            <!-- display city search (current weather) -->
+                            <!-- city & weather icon  -->
+                            <div class="city"></div>
+                            <div class="weather-icon"></div>
+                            <!-- temp -->
+                            <div class="temp"></div>
+                            <!-- wind -->
+                            <div class="wind"></div>
+                            <!-- humidity -->
+                            <div class="humidity"></div>
+                            <!-- UV Index -->
+                            <div class="uvIndex"></div>
+                            <div class="uv-button"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
+
+            <!-- 5 day forecast -->
+            <div class="uk-grid-row-small">
+                <div class="uk-align-center">
+                    <div class="current-weather"></div>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <!-- UIkit JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.1/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.1/dist/js/uikit-icons.min.js"></script>
-  </body>
+</body>
+
 </html>

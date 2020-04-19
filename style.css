@@ -7,33 +7,34 @@
     font-size: 80px;
 }
 
-body{
-    background-image:url(images/clouds.jpg);
+body {
+    /* background-image: url(images/clouds.jpg); */
     background-size: cover;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 
-.row{
-    margin:3px;
+.row {
+    margin: 3px;
 }
 
 
 /* Phone edits*/
-@media (max-width: 580px) {   
 
-    .weather-dash{
+@media (max-width: 580px) {
+    .weather-dash {
         font-size: 30px;
     }
     /*font size change*/
-     h1{
-       font-size: 25px;
-     }
-
-     p{
-         font-size: 15px;
-     }
-
-     h5, .card-header, .placeholder{
-         font-size: 15px;
-     }
-   
+    h1 {
+        font-size: 25px;
+    }
+    p {
+        font-size: 15px;
+    }
+    h5,
+    .card-header,
+    .placeholder {
+        font-size: 15px;
+    }
 }
